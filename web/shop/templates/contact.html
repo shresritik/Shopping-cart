@@ -1,0 +1,38 @@
+{% extends 'layout.html' %} {% block title %} {{product.product_name}} {% endblock %} {% block body %}
+<div class="container my-4">
+    <form action="/contact/" method="POST"> {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput2" name="email" placeholder="name@example.com">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Phone no.</label>
+            <input type="tel" class="form-control" id="exampleFormControlInput3" name="phone" placeholder="Enter your phone number"> </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Your message</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" cols="20" name="msg" placeholder="Any comments/messages"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary cart">Submit</button>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+{% if thank %}
+alert('Thank you for contacting us.');
+document.location.href = "/contact"
+{% endif %}
+
+
+
+
+</script>
+{% endblock %}
